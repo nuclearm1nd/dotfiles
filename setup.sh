@@ -1,0 +1,3 @@
+
+ln -sv ~/.dotfiles/.bashrc ~
+
