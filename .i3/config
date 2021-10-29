@@ -242,7 +242,7 @@ client.background       #ffffff
 
 ## Start-up ##
 # set wallpaper
-exec_always hsetroot -fill ~/images/wallpaper/hyouka.png &
+exec_always hsetroot -fill ~/images/wallpaper/panacea_door.png &
 
 # enable compositing
 exec xcompmgr &
