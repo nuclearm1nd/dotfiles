@@ -52,7 +52,9 @@
                                 :PaterJason/cmp-conjure]
                      :mod :cmp}
   ;; Theme
-  ; :projekt0n/github-nvim-theme {:mod :theme}
   :danilo-augusto/vim-afterglow {:mod :theme}
+
+  ;; Zest
+  :tsbohc/zest.nvim {:mod :zest}
 )
 

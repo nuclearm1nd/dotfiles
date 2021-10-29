@@ -60,7 +60,6 @@
 ;; vim-airline
 ;; vim-airline-themes
 ;; vim-colorsamplerpack
-;; vim-ctrlp
 ;; vim-fugitive
 ;; vim-nerdtrtee
 
@@ -68,9 +67,6 @@
 (cmd "let g:airline_theme='minimalist'")
 (cmd "let g:airline#extensions#tabline#enabled = 1")
 (cmd "let g:airline#extensions#whitespace#checks = ['indent', 'trailing']")
-
-;; CtrlP: Ignore files ignored by git
-(cmd "let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']")
 
 ;; Packer
 (nvim.set_keymap :n :<leader>pu ":PackerUpdate<CR>" {:noremap true})
