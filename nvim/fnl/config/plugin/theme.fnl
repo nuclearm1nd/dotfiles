@@ -1,17 +1,10 @@
-(module config.plugin.theme
-  {autoload {theme vim-afterglow}})
-
-;(theme.setup {:theme_style "dark"
-;              :comment_style "italic"})
+(module config.plugin.theme)
 
 (def- cmd vim.api.nvim_command)
 
-;; Semitransparent backgroud
-;(cmd "let tgc=1")
-;(cmd "let g:afterglow_inherit_background=1")
-
 ;; ColorScheme
-(cmd "colorscheme afterglow")
+(cmd "let g:gruvbox_contrast_dark='hard'")
+(cmd "colorscheme gruvbox")
 
 ;; Transparent menu
 ;(cmd "hi Pmenu ctermbg=none guibg=none")

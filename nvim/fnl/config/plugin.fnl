@@ -52,7 +52,7 @@
                                 :PaterJason/cmp-conjure]
                      :mod :cmp}
   ;; Theme
-  :danilo-augusto/vim-afterglow {:mod :theme}
+  :morhetz/gruvbox {:mod :theme}
 
   ;; Zest
   :tsbohc/zest.nvim {:mod :zest}
