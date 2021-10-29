@@ -10,6 +10,7 @@
 
 (def- cmd vim.api.nvim_command)
 (def- nset nvim.ex.set)
+(def- keymap nvim.set_keymap)
 
 (set nvim.g.maplocalleader ",")
 
@@ -51,10 +52,9 @@
     (core.assoc nvim.o option value)))
 
 ;; Mappings
-(nvim.set_keymap :n :<leader>ev ":vsp ~/.dotfiles/nvim/fnl/config/init.fnl<CR>" {:noremap true})
-;(nvim.set_keymap :n :<leader>es ":source $MYVIMRC<CR>" {:noremap true}) not working with lua
-(nvim.set_keymap :n :<c-d> "yyp" {:noremap true})
-(nvim.set_keymap :i :<c-d> "<esc>yypi" {:noremap true})
+(keymap :n :<leader>ev ":vsp ~/.dotfiles/nvim/fnl/config/init.fnl<CR>" {:noremap true})
+(keymap :n :<c-d> "yyp" {:noremap true})
+(keymap :i :<c-d> "<esc>yypi" {:noremap true})
 
 ;; Plugins which are assumed to be installed globally
 ;; vim-airline
@@ -69,11 +69,15 @@
 (cmd "let g:airline#extensions#whitespace#checks = ['indent', 'trailing']")
 
 ;; Packer
-(nvim.set_keymap :n :<leader>pu ":PackerUpdate<CR>" {:noremap true})
-(nvim.set_keymap :n :<leader>pi ":PackerInstall<CR>" {:noremap true})
+(keymap :n :<leader>pu ":PackerUpdate<CR>" {:noremap true})
+(keymap :n :<leader>pi ":PackerInstall<CR>" {:noremap true})
 
 ;; NerdTree
-(nvim.set_keymap :n :<leader>nt ":NERDTree<CR>" {:noremap true})
+(keymap :n :<leader>nt ":NERDTreeToggle<CR>" {:noremap true})
+
+;; Fugitive
+(keymap :n :<leader>gg ":Git<CR>:only<CR>" {:noremap true})
+(keymap :n :<leader>gw ":Gwrite<CR>" {:noremap true})
 
 ;; Import plugin.fnl
 (require :config.plugin)
