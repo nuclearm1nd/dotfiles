@@ -51,10 +51,15 @@
                                 :hrsh7th/cmp-nvim-lsp
                                 :PaterJason/cmp-conjure]
                      :mod :cmp}
+
   ;; Theme
   :morhetz/gruvbox {:mod :theme}
 
   ;; Zest
   :tsbohc/zest.nvim {:mod :zest}
+
+  ;;; Startup optimizations
+  :lewis6991/impatient.nvim {}
+  :nathom/filetype.nvim {:mod :filetype}
 )
 
