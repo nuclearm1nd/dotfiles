@@ -3,11 +3,30 @@
              lsp lspconfig
              cmplsp cmp_nvim_lsp}})
 
-;symbols to show for lsp diagnostics
-(vim.fn.sign_define "LspDiagnosticsSignError" {:text ""})
-(vim.fn.sign_define "LspDiagnosticsSignWarning" {:text ""})
-(vim.fn.sign_define "LspDiagnosticsSignInformation" {:text ""})
-(vim.fn.sign_define "LspDiagnosticsSignHint" {:text ""})
+(set nvim.g.signcolumn "yes:1")
+
+(set nvim.g.show_diagnostic_signs false)
+(vim.fn.sign_define "DiagnosticSignError" {:text "" :texthl "StatusLineNC"})
+(vim.fn.sign_define "DiagnosticSignWarn"  {:text "" :texthl "StatusLineNC"})
+(vim.fn.sign_define "DiagnosticSignInfo"  {:text "" :texthl "StatusLineNC"})
+(vim.fn.sign_define "DiagnosticSignHint"  {:text "" :texthl "StatusLineNC"})
+
+(fn _G.toggle_diagnostic_signs []
+  (if nvim.g.show_diagnostic_signs
+      (do
+        (set nvim.g.show_diagnostic_signs false)
+        (vim.fn.sign_define "DiagnosticSignError" {:text "" :texthl "StatusLineNC"})
+        (vim.fn.sign_define "DiagnosticSignWarn"  {:text "" :texthl "StatusLineNC"})
+        (vim.fn.sign_define "DiagnosticSignInfo"  {:text "" :texthl "StatusLineNC"})
+        (vim.fn.sign_define "DiagnosticSignHint"  {:text "" :texthl "StatusLineNC"}))
+      (do
+        (set nvim.g.show_diagnostic_signs true)
+        (vim.fn.sign_define "DiagnosticSignError" {:text "E" :texthl "DiagnosticSignError"})
+        (vim.fn.sign_define "DiagnosticSignWarn"  {:text "W" :texthl "DiagnosticSignWarn"})
+        (vim.fn.sign_define "DiagnosticSignInfo"  {:text "I" :texthl "DiagnosticSignInfo"})
+        (vim.fn.sign_define "DiagnosticSignHint"  {:text "H" :texthl "DiagnosticSignHint"}))))
+
+(nvim.set_keymap :n :<leader>tt ":call v:lua.toggle_diagnostic_signs()<CR>" {:noremap true :silent true})
 
 ;server features
 (let [handlers {"textDocument/publishDiagnostics"
@@ -15,7 +34,7 @@
                   vim.lsp.diagnostic.on_publish_diagnostics
                   {:severity_sort true
                    :update_in_insert false
-                   :underline true
+                   :underline false
                    :virtual_text false})
                 "textDocument/hover"
                 (vim.lsp.with
@@ -50,3 +69,4 @@
   (lsp.clojure_lsp.setup {:on_attach on_attach
                           :handlers handlers
                           :capabilities capabilities}))
+
