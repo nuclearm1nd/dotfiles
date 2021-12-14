@@ -124,7 +124,7 @@ bindsym $mod+x exec $terminal --working-directory "$(xcwd)"
 bindsym $mod+c exec $terminal --command ranger
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -fn 'DejaVu Sans Book-16'
+bindsym $mod+d exec dmenu_run -fn 'DejaVu Sans Book-14'
 
 # toggle mpd playback
 bindsym $mod+p exec mpc toggle
