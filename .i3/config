@@ -229,6 +229,7 @@ for_window [class="(?i)firefox"] border none
 for_window [class="(?i)chromium"] border none
 for_window [class="(?i)brave"] border none
 for_window [class="(?i)wesnoth"] border none
+for_window [class="(?i)cool-retro-term"] border none
 
 ## Colors ##
 # class                 border  backgr. text    indicator child_border
