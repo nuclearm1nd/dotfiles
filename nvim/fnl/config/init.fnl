@@ -55,6 +55,8 @@
 (keymap :n :<leader>ev ":vsp ~/.dotfiles/nvim/fnl/config/init.fnl<CR>" {:noremap true})
 (keymap :n :<c-d> "yyp" {:noremap true})
 (keymap :i :<c-d> "<esc>yypi" {:noremap true})
+(keymap :n :<c-k> "<esc>^hvk$d" {:noremap true})
+(keymap :i :<c-k> "<esc>^hvk$di" {:noremap true})
 
 ;; Plugins which are assumed to be installed globally
 ;; vim-airline
