@@ -88,6 +88,8 @@ alias rflct="reflector --verbose -l 20 -p http --sort rate --country Ukraine,Pol
 # Show weather in cli
 alias meteo="curl wttr.in/Kharkiv"
 alias meteo2="curl v2.wttr.in/Kharkiv"
+alias wlviv="curl wttr.in/Lviv"
+alias wlviv2="curl v2.wttr.in/Lviv"
 
 export PATH=$PATH:~/.bin
 

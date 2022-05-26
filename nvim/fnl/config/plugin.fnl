@@ -37,6 +37,7 @@
   ;; File searching
   :nvim-telescope/telescope.nvim {:requires [:nvim-lua/popup.nvim
                                              :nvim-lua/plenary.nvim]
+                                  :branch :master
                                   :mod :telescope}
 
   ;; Parsing system
@@ -61,5 +62,8 @@
   ;;; Startup optimizations
   :lewis6991/impatient.nvim {}
   :nathom/filetype.nvim {:mod :filetype}
+
+  :moll/vim-bbye {:mod :bbye}
+  :Pocco81/TrueZen.nvim {:mod :truezen}
 )
 
