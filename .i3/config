@@ -243,7 +243,8 @@ client.background       #ffffff
 
 ## Start-up ##
 # set wallpaper
-exec_always hsetroot -fill ~/images/wallpaper/jesus-campos.jpg &
+# exec_always hsetroot -fill ~/images/wallpaper/jesus-campos.jpg &
+### for now wallpaper is handled by autorandr postscript
 
 # enable compositing
 exec xcompmgr &
