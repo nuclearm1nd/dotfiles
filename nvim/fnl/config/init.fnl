@@ -74,6 +74,7 @@
 ;; Packer
 (keymap :n :<leader>pu ":PackerUpdate<CR>" {:noremap true})
 (keymap :n :<leader>pi ":PackerInstall<CR>" {:noremap true})
+(keymap :n :<leader>pc ":PackerClean<CR>" {:noremap true})
 
 ;; NerdTree
 (keymap :n :<leader>nt ":NERDTreeToggle<CR>" {:noremap true})
