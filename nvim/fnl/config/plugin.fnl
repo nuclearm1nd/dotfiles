@@ -65,5 +65,12 @@
 
   :moll/vim-bbye {:mod :bbye}
   :Pocco81/TrueZen.nvim {:mod :truezen}
+
+  ;; S-expression tools
+  :guns/vim-sexp {:for "clojure" :mod :sexp}
+
+  ;; Vim Iced
+  ;:liuchengxu/vim-clap {:do ":Clap install-binary"}
+  ;:liquidz/vim-iced {:for "clojure" :mod :iced}
 )
 
