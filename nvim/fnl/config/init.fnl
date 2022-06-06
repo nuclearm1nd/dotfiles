@@ -72,6 +72,7 @@
 (cmd "let g:airline#extensions#whitespace#checks = ['indent', 'trailing']")
 
 (keymap :n :<leader>ch ":checkhealth<CR>" {:noremap true})
+(keymap :n :<leader>an ":e ~/docs/notes/" {:noremap true})
 
 ;; Packer
 (keymap :n :<leader>pu ":PackerUpdate<CR>" {:noremap true})
