@@ -71,6 +71,8 @@
 (cmd "let g:airline#extensions#tabline#enabled = 1")
 (cmd "let g:airline#extensions#whitespace#checks = ['indent', 'trailing']")
 
+(keymap :n :<leader>ch ":checkhealth<CR>" {:noremap true})
+
 ;; Packer
 (keymap :n :<leader>pu ":PackerUpdate<CR>" {:noremap true})
 (keymap :n :<leader>pi ":PackerInstall<CR>" {:noremap true})

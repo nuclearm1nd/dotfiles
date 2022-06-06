@@ -69,8 +69,12 @@
   ;; S-expression tools
   :guns/vim-sexp {:for "clojure" :mod :sexp}
 
+  :sindrets/diffview.nvim {:requires [:nvim-lua/popup.nvim]
+                           :mod :diffview}
+
   ;; Vim Iced
   ;:liuchengxu/vim-clap {:do ":Clap install-binary"}
   ;:liquidz/vim-iced {:for "clojure" :mod :iced}
+
 )
 
