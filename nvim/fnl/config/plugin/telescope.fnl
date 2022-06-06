@@ -13,4 +13,5 @@
 (nvim.set_keymap :n :<leader>fx ":lua require('telescope.builtin').git_bcommits()<CR>" {:noremap true})
 
 (nvim.set_keymap :n :<leader>fn ":Telescope find_files cwd=~/docs/notes/<CR>" {:noremap true})
+(nvim.set_keymap :n :<leader>fi ":Telescope live_grep cwd=~/docs/notes/<CR>" {:noremap true})
 
