@@ -15,14 +15,20 @@
                               :folder_statuses :only_folded}
                :win_config {:position :left
                             :width 35}}
-  :file_history_panel {:log_options {:max_count 256
-                                     :follow false
-                                     :all false
-                                     :merges false
-                                     :no_merges false
-                                     :reverse false}
-                       :win_config {:position :bottom
-                                    :height 16}}
+  :file_history_panel
+    {:log_options
+      {:single_file
+        {:max_count 256
+         :follow false
+         :all false
+         :merges false
+         :no_merges false
+         :reverse false}
+       :multi_file
+        {:max-count 128}}
+     :win_config
+       {:position :bottom
+        :height 16}}
   :commit_log_panel {:win_config {}}
   :default_args {:DiffviewOpen {}
                  :DiffviewFileHistory {}}
