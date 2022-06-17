@@ -137,7 +137,8 @@ bindsym $mod+Up exec amixer set Master 5%+
 bindsym --release $mod+Shift+s exec xset dpms force standby
 
 # Rofi
-bindsym Mod1+Tab exec rofi -show combi
+bindsym Mod1+Tab exec rofi -show window -no-show-icons
+bindsym Mod1+F2  exec rofi -show drun
 
 # Firefox
 bindsym $mod+f exec firefox

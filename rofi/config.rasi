@@ -1,17 +1,17 @@
 configuration {
-/*	modi: "window,run,ssh";*/
-	width: 67;
+	modi: "window,run";
+	width: 70;
 /*	lines: 15;*/
 /*	columns: 1;*/
-	font: "DejaVu Sans Mono 12";
+	font: "DejaVu Sans Mono 14";
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
 /*	fixed-num-lines: true;*/
-	show-icons: false;
-/*	terminal: "rofi-sensible-terminal";*/
+	show-icons: true;
+	terminal: "alacritty";
 /*	ssh-client: "ssh";*/
 /*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
 /*	run-command: "{cmd}";*/
@@ -36,7 +36,7 @@ configuration {
 /*	auto-select: false;*/
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
-	combi-modi: "window,drun";
+/*	combi-modi: "window";*/
 /*	matching: "normal";*/
 /*	tokenize: true;*/
 /*	m: "-5";*/
@@ -150,5 +150,6 @@ configuration {
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
-@import "sidebar.rasi"
-@theme "/usr/share/rofi/themes/sidebar.rasi"
+
+@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
+
