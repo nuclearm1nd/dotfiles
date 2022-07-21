@@ -29,7 +29,7 @@
   :wbthomason/packer.nvim {}
 
   ;; Neovim config and plugins in Fennel
-  :Olical/aniseed {:branch :develop}
+  :Olical/aniseed {:branch :develop :mod :aniseed}
 
   ;; Clojure
   :Olical/conjure {:branch :master :mod :conjure}
