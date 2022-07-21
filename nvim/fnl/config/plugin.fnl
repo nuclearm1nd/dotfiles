@@ -72,6 +72,9 @@
   :sindrets/diffview.nvim {:requires [:nvim-lua/popup.nvim]
                            :mod :diffview}
 
+  ;; Trailing whitespaces
+  :zakharykaplan/nvim-retrail {:mod :retrail}
+
   ;; Vim Iced
   ;:liuchengxu/vim-clap {:do ":Clap install-binary"}
   ;:liquidz/vim-iced {:for "clojure" :mod :iced}
