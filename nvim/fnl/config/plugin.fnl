@@ -67,7 +67,7 @@
   :Pocco81/TrueZen.nvim {:mod :truezen}
 
   ;; S-expression tools
-  :guns/vim-sexp {:for "clojure" :mod :sexp}
+  :guns/vim-sexp {:mod :sexp}
 
   :sindrets/diffview.nvim {:requires [:nvim-lua/popup.nvim]
                            :mod :diffview}
