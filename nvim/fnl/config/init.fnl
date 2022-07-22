@@ -58,6 +58,7 @@
 (keymap :n :<c-k> "<esc>^hvk$d" {:noremap true})
 (keymap :i :<c-k> "<esc>^hvk$di" {:noremap true})
 (keymap :n :<c-c> "<esc>vk$c" {:noremap true})
+(keymap :n :<c-del> "<esc>VG$d" {:noremap true})
 
 ;; Plugins which are assumed to be installed globally
 ;; vim-airline
