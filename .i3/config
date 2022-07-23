@@ -141,7 +141,7 @@ bindsym Mod1+Tab exec rofi -show window -no-show-icons
 bindsym Mod1+F2  exec rofi -show drun
 
 # Firefox
-bindsym $mod+f exec firefox
+bindsym $mod+f exec firefox-developer-edition
 
 # YouTube Music
 bindsym $mod+y exec flatpak run eu.tiliado.NuvolaAppYoutubeMusic
