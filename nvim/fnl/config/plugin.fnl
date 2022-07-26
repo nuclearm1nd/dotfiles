@@ -73,7 +73,8 @@
                            :mod :diffview}
 
   ;; Trailing whitespaces
-  :zakharykaplan/nvim-retrail {:mod :retrail}
+  ; :zakharykaplan/nvim-retrail {:mod :retrail}
+  ;; Good idea but bad implementation -> doesn't work well with telescope
 
   ;; Vim Iced
   ;:liuchengxu/vim-clap {:do ":Clap install-binary"}

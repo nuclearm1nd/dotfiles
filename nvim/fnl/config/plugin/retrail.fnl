@@ -4,8 +4,8 @@
 ((. (require :retrail) :setup)
  {:hlgroup :Search
   :pattern "\\v((.*%#)@!|%#)\\s+$"
-  :filetype {:strict false
-             :include []
+  :filetype {:strict true
+             :include ["clojure" "fennel"]
              :exclude ["" "help"]}
   :trim {:whitespace true
          :blanklines false}})
