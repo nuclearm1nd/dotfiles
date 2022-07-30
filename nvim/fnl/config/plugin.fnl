@@ -74,10 +74,5 @@
   ;; Trailing whitespaces
   :zakharykaplan/nvim-retrail {:mod :retrail
                                :branch :main}
-
-  ;; Vim Iced
-  ;:liuchengxu/vim-clap {:do ":Clap install-binary"}
-  ;:liquidz/vim-iced {:for "clojure" :mod :iced}
-
 )
 

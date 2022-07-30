@@ -1,7 +1,8 @@
 (module config.plugin.retrail
-  {autoload {nvim aniseed.nvim}})
+  {autoload {nvim aniseed.nvim
+             retrail retrail}})
 
-((. (require :retrail) :setup)
+(retrail.setup
  {:hlgroup :Search
   :pattern "\\v((.*%#)@!|%#)\\s+$"
   :filetype {:strict true
