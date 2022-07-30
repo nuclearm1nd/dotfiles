@@ -64,7 +64,6 @@
   :nathom/filetype.nvim {:mod :filetype}
 
   :moll/vim-bbye {:mod :bbye}
-  :Pocco81/TrueZen.nvim {:mod :truezen}
 
   ;; S-expression tools
   :guns/vim-sexp {:mod :sexp}
@@ -75,7 +74,6 @@
   ;; Trailing whitespaces
   :zakharykaplan/nvim-retrail {:mod :retrail
                                :branch :main}
-  ;; Good idea but bad implementation -> doesn't work well with telescope
 
   ;; Vim Iced
   ;:liuchengxu/vim-clap {:do ":Clap install-binary"}
