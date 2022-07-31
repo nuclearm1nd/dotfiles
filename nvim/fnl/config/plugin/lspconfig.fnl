@@ -6,25 +6,25 @@
 (set nvim.g.signcolumn "yes:1")
 
 (set nvim.g.show_diagnostic_signs false)
-(vim.fn.sign_define "DiagnosticSignError" {:text "" :texthl "StatusLineNC"})
-(vim.fn.sign_define "DiagnosticSignWarn"  {:text "" :texthl "StatusLineNC"})
-(vim.fn.sign_define "DiagnosticSignInfo"  {:text "" :texthl "StatusLineNC"})
-(vim.fn.sign_define "DiagnosticSignHint"  {:text "" :texthl "StatusLineNC"})
+(vim.fn.sign_define "DiagnosticSignError" {:text " " :texthl "StatusLineNC"})
+(vim.fn.sign_define "DiagnosticSignWarn"  {:text " " :texthl "StatusLineNC"})
+(vim.fn.sign_define "DiagnosticSignInfo"  {:text " " :texthl "StatusLineNC"})
+(vim.fn.sign_define "DiagnosticSignHint"  {:text " " :texthl "StatusLineNC"})
 
 (fn _G.toggle_diagnostic_signs []
   (if nvim.g.show_diagnostic_signs
       (do
         (set nvim.g.show_diagnostic_signs false)
-        (vim.fn.sign_define "DiagnosticSignError" {:text "" :texthl "StatusLineNC"})
-        (vim.fn.sign_define "DiagnosticSignWarn"  {:text "" :texthl "StatusLineNC"})
-        (vim.fn.sign_define "DiagnosticSignInfo"  {:text "" :texthl "StatusLineNC"})
-        (vim.fn.sign_define "DiagnosticSignHint"  {:text "" :texthl "StatusLineNC"}))
+        (vim.fn.sign_define "DiagnosticSignError" {:text " " :texthl "StatusLineNC"})
+        (vim.fn.sign_define "DiagnosticSignWarn"  {:text " " :texthl "StatusLineNC"})
+        (vim.fn.sign_define "DiagnosticSignInfo"  {:text " " :texthl "StatusLineNC"})
+        (vim.fn.sign_define "DiagnosticSignHint"  {:text " " :texthl "StatusLineNC"}))
       (do
         (set nvim.g.show_diagnostic_signs true)
-        (vim.fn.sign_define "DiagnosticSignError" {:text "E" :texthl "DiagnosticSignError"})
-        (vim.fn.sign_define "DiagnosticSignWarn"  {:text "W" :texthl "DiagnosticSignWarn"})
-        (vim.fn.sign_define "DiagnosticSignInfo"  {:text "I" :texthl "DiagnosticSignInfo"})
-        (vim.fn.sign_define "DiagnosticSignHint"  {:text "H" :texthl "DiagnosticSignHint"}))))
+        (vim.fn.sign_define "DiagnosticSignError" {:text "" :texthl "DiagnosticSignError"})
+        (vim.fn.sign_define "DiagnosticSignWarn"  {:text "" :texthl "DiagnosticSignWarn"})
+        (vim.fn.sign_define "DiagnosticSignInfo"  {:text "" :texthl "DiagnosticSignInfo"})
+        (vim.fn.sign_define "DiagnosticSignHint"  {:text "" :texthl "DiagnosticSignHint"}))))
 
 (nvim.set_keymap :n :<leader>tt ":call v:lua.toggle_diagnostic_signs()<CR>" {:noremap true :silent true})
 
@@ -63,10 +63,23 @@
                     (nvim.buf_set_keymap bufnr :v :<leader>la ":lua require('telescope.builtin').lsp_range_code_actions(require('telescope.themes').get_cursor())<cr>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>lw ":lua require('telescope.builtin').lsp_workspace_diagnostics()<cr>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>lr ":lua require('telescope.builtin').lsp_references()<cr>" {:noremap true})
-                    (nvim.buf_set_keymap bufnr :n :<leader>li ":lua require('telescope.builtin').lsp_implementations()<cr>" {:noremap true})))]
+                    (nvim.buf_set_keymap bufnr :n :<leader>li ":lua require('telescope.builtin').lsp_implementations()<cr>" {:noremap true})))
+      lua_settings {:Lua
+                     {:runtime     {:version :LuaJIT}
+                      :diagnostics {:globals [:vim]}
+                      :workspace   {:library (vim.api.nvim_get_runtime_file "" true)}
+                      :telemetry   {:enable false}}}]
 
   ;; Clojure
-  (lsp.clojure_lsp.setup {:on_attach on_attach
-                          :handlers handlers
-                          :capabilities capabilities}))
+  (lsp.clojure_lsp.setup
+    {:on_attach on_attach
+     :handlers handlers
+     :capabilities capabilities})
+
+  ;; Lua
+  (lsp.sumneko_lua.setup
+    {:on_attach on_attach
+     :handlers handlers
+     :capabilities capabilities
+     :settings lua_settings}))
 
