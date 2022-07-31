@@ -81,5 +81,11 @@
     {:on_attach on_attach
      :handlers handlers
      :capabilities capabilities
-     :settings lua_settings}))
+     :settings lua_settings})
+
+  ;; CSS
+  (lsp.cssls.setup
+    {:on_attach on_attach
+     :handlers handlers
+     :capabilities capabilities}))
 

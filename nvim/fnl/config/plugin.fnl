@@ -74,5 +74,7 @@
   ;; Trailing whitespaces
   :zakharykaplan/nvim-retrail {:mod :retrail
                                :branch :main}
+
+  :williamboman/mason.nvim {:mod :mason}
 )
 
