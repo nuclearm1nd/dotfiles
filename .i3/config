@@ -233,14 +233,29 @@ for_window [class="(?i)wesnoth"] border none
 for_window [class="(?i)cool-retro-term"] border none
 
 ## Colors ##
-# class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+set $bg        #1d2021
+set $fg        #dfbf8e
+set $red       #ea6962
+set $green     #a9b665
+set $yellow    #e78a4e
+set $blue      #206090
+set $cyan      #89b482
+set $magenta   #d3869b
+set $purple    #b16286
+set $aqua      #689d6a
+set $gray      #928374
+set $darkgray  #1d2021
+set $lightgray #7c6f64
+set $white     #eaeaea
+set $black     #665c54
 
-client.background       #ffffff
+# class                 border     backgr     text       indicator child_border
+client.focused          $blue      $blue      $white     $purple   $bg
+client.focused_inactive $darkgray  $bg        $lightgray $purple   $darkgray
+client.unfocused        $darkgray  $bg        $lightgray $purple   $darkgray
+client.urgent           $red       $red       $white     $red      $red
+
+client.background       $bg
 
 ## Start-up ##
 # set wallpaper
