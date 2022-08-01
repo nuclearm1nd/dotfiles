@@ -54,7 +54,8 @@
                      :mod :cmp}
 
   ;; Theme
-  :morhetz/gruvbox {:mod :theme}
+  :morhetz/gruvbox {:mod :gruvbox}
+  ;:VDuchauffour/neodark.nvim {:mod :neodark}
 
   ;; Zest
   :tsbohc/zest.nvim {:mod :zest}

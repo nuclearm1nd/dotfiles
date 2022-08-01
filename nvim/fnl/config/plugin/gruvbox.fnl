@@ -1,4 +1,4 @@
-(module config.plugin.theme)
+(module config.plugin.gruvbox)
 
 (def- cmd vim.api.nvim_command)
 
