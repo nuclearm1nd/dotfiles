@@ -299,7 +299,7 @@ font:
 ## https://github.com/eendroroy/alacritty-theme
 colors:
   primary:
-    background: '0x1d2021'
+    background: '0x121110'
     foreground: '0xdfbf8e'
 
   normal:
