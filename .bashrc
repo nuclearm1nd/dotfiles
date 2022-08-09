@@ -91,6 +91,9 @@ alias meteo2="curl v2.wttr.in/Kharkiv"
 alias wlviv="curl wttr.in/Lviv"
 alias wlviv2="curl v2.wttr.in/Lviv"
 
+# Game aliases
+alias darkmod="cd ~/games/darkmod/ && ./thedarkmod.x64"
+
 export PATH=$PATH:~/.bin
 
 source /etc/profile.d/vte.sh
