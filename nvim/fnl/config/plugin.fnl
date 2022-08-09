@@ -76,7 +76,8 @@
   :williamboman/mason.nvim {:mod :mason}
 
   :mfussenegger/nvim-dap {:requires [:jbyuki/one-small-step-for-vimkind
-                                     :theHamsta/nvim-dap-virtual-text]
+                                     :theHamsta/nvim-dap-virtual-text
+                                     :rcarriga/nvim-dap-ui]
                           :mod :dap}
 )
 
