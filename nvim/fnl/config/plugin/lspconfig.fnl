@@ -64,10 +64,12 @@
                     (nvim.buf_set_keymap bufnr :n :<leader>lw ":lua require('telescope.builtin').lsp_workspace_diagnostics()<cr>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>lr ":lua require('telescope.builtin').lsp_references()<cr>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>li ":lua require('telescope.builtin').lsp_implementations()<cr>" {:noremap true})))
+
       lua_settings {:Lua
                      {:runtime     {:version :LuaJIT}
                       :diagnostics {:globals [:vim]}
-                      :workspace   {:library (vim.api.nvim_get_runtime_file "" true)}
+                      :workspace   {:library (vim.api.nvim_get_runtime_file "" true)
+                                    :checkThirdParty false}
                       :telemetry   {:enable false}}}]
 
   ;; Clojure
