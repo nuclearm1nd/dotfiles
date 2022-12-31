@@ -17,15 +17,16 @@
                             :width 35}}
   :file_history_panel
     {:log_options
-      {:single_file
-        {:max_count 256
-         :follow false
-         :all false
-         :merges false
-         :no_merges false
-         :reverse false}
-       :multi_file
-        {:max-count 128}}
+      {:git
+        {:single_file
+          {:max_count 256
+           :follow false
+           :all false
+           :merges false
+           :no_merges false
+           :reverse false}
+         :multi_file
+          {:max-count 128}}}
      :win_config
        {:position :bottom
         :height 16}}
