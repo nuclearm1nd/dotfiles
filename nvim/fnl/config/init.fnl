@@ -60,18 +60,6 @@
 (keymap :n :<c-c> "<esc>vk$c" {:noremap true})
 (keymap :n :<c-del> "<esc>VG$dzb" {:noremap true})
 
-;; Plugins which are assumed to be installed globally
-;; vim-airline
-;; vim-airline-themes
-;; vim-colorsamplerpack
-;; vim-fugitive
-;; vim-nerdtrtee
-
-;; Airline config
-(cmd "let g:airline_theme='minimalist'")
-(cmd "let g:airline#extensions#tabline#enabled = 1")
-(cmd "let g:airline#extensions#whitespace#checks = ['indent', 'trailing']")
-
 (keymap :n :<leader>ch ":checkhealth<CR>" {:noremap true})
 (keymap :n :<leader>an ":e ~/docs/notes/" {:noremap true})
 
@@ -79,13 +67,6 @@
 (keymap :n :<leader>pu ":PackerUpdate<CR>" {:noremap true})
 (keymap :n :<leader>pi ":PackerInstall<CR>" {:noremap true})
 (keymap :n :<leader>pc ":PackerClean<CR>" {:noremap true})
-
-;; NerdTree
-(keymap :n :<leader>nt ":NERDTreeToggle<CR>" {:noremap true})
-
-;; Fugitive
-(keymap :n :<leader>gg ":Git<CR>:only<CR>" {:noremap true})
-(keymap :n :<leader>gw ":Gwrite<CR>" {:noremap true})
 
 ;; Import plugin.fnl
 (require :config.plugin)

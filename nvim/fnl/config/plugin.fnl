@@ -79,5 +79,12 @@
                                      :theHamsta/nvim-dap-virtual-text
                                      :rcarriga/nvim-dap-ui]
                           :mod :dap}
+
+  :tpope/vim-fugitive {:mod :fugitive}
+
+  :preservim/nerdtree {:mod :nerdtree}
+
+  :vim-airline/vim-airline-themes {:requires [:vim-airline/vim-airline]
+                                   :mod :airline}
 )
 

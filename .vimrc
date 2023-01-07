@@ -108,8 +108,3 @@ let maplocalleader=","
 let g:afterglow_inherit_background=1
 colorscheme afterglow
 
-" Airline config
-let g:airline_theme='minimalist'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#whitespace#checks = ['indent', 'trailing']
-
