@@ -7,8 +7,8 @@
 
 PS1='[\u@\h \W]\$ '
 
-export EDITOR="vim"
-#export pacman_program="pacman-color"
+export EDITOR="nvim"
+export VISUAL="nvim"
 export PATH=$PATH:/usr/bin
 
 # modified commands
@@ -33,7 +33,8 @@ alias openports='netstat --all --numeric --programs --inet --inet6'
 if [ $UID -ne 0 ]; then
 alias sudo='sudo '
 alias scat='sudo cat'
-alias svim='sudo vim'
+alias svim='sudo nvim'
+alias sdiff='sudo nvim -d'
 alias root='sudo su'
 alias reboot='sudo reboot'
 alias halt='sudo halt'
