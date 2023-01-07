@@ -94,6 +94,11 @@ alias wlviv2="curl v2.wttr.in/Lviv"
 # Game aliases
 alias darkmod="cd ~/games/darkmod/ && prime-run ./thedarkmod.x64"
 
+# Steam
+alias liststeamids="find ~/.steam/steam/steamapps/ -maxdepth 1 -type f -name '*.acf' -exec awk -F '\"' '/\"appid|name/{ printf \$4 \"|\" } END { print \"\" }' {} \; | column -t -s '|' | sort -k 2"
+alias findsteamid="find ~/.steam/steam/steamapps/ -maxdepth 1 -type f -name '*.acf' -exec awk -F '\"' '/\"appid|name/{ printf \$4 \"|\" } END { print \"\" }' {} \; | column -t -s '|' | sort -k 2 | grep -i"
+alias bl2="steam steam://rungameid/49520"
+
 export PATH=$PATH:~/.bin
 
 source /etc/profile.d/vte.sh
