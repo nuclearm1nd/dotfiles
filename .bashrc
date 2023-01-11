@@ -102,5 +102,7 @@ alias bl2="steam steam://rungameid/49520"
 
 export PATH=$PATH:~/.bin
 
-source /etc/profile.d/vte.sh
+if [ -f /etc/profile.d/vte.sh ]; then
+    source /etc/profile.d/vte.sh
+fi
 
