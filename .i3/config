@@ -5,13 +5,14 @@
 ## Main ##
 set $mod Mod4
 set $terminal alacritty
+set $wallpaper /usr/share/backgrounds/owl.png
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 
-font pango:DejaVu Sans Mono 10
+font pango:DejaVu Sans Mono 16
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -126,17 +127,6 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-## GPUs and screens
-# Switch GPUs
-# bindsym $mod+Shift+i exec optimus-manager --switch hybrid
-# bindsym $mod+Shift+n exec optimus-manager --switch nvidia
-
-# Switch screen layouts in nvidia mode
-bindsym $mod+Shift+o exec autorandr --load docked
-bindsym $mod+Shift+p exec autorandr --load nvidia_builtin
-# Load autorandr default profile (hybrid mode)
-bindsym $mod+Shift+d exec autorandr --load nvidia_builtin
-
 # Take screenshot
 bindsym --release Shift+Print exec "~/.dotfiles/scripts/scregcp.sh -s ~/images/screenshot/"
 bindsym --release Print exec "~/.dotfiles/scripts/scregcp.sh ~/images/screenshot/"
@@ -177,7 +167,7 @@ bindsym $mod+Mod1+F2 exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 
 # Firefox
-bindsym $mod+f exec firefox-developer-edition
+bindsym $mod+f exec firefox
 
 ## Modes ##
 # resize window (you can also use the mouse for that)
@@ -207,10 +197,8 @@ mode "resize" {
 # system actions dialog
 set $mode_system System (l) lock, (e) logout, (r) reboot, (Shift+s) shutdown
 mode --pango_markup "$mode_system" {
-    bindsym l exec --no-startup-id dm-tool lock, mode "default"
+    bindsym l exec --no-startup-id i3lock -i $wallpaper, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    # bindsym s exec --no-startup-id dm-tool lock && systemctl suspend, mode "default"
-    # bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
@@ -219,31 +207,16 @@ mode --pango_markup "$mode_system" {
     bindsym Escape mode "default"
     }
 
-# mode to switch GPU's
-set $mode_switch_gpu Switch GPU (n) Nvidia, (h) hybrid
-mode --pango_markup "$mode_switch_gpu" {
-
-    bindsym h exec optimus-manager --switch hybrid --no-confirm
-    bindsym n exec optimus-manager --switch nvidia --no-confirm
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
 # call system dialog
-bindsym $mod+Delete mode "$mode_system"
 bindsym $mod+Shift+e mode "$mode_system"
-
 bindsym $mod+r mode "resize"
-
-bindsym $mod+Shift+v mode "$mode_switch_gpu"
 
 ## Custom preferences for apps ##
 # Make some applications always float
 
 for_window [class="TuxGuitar"] floating enable
 for_window [class="Steam"] floating enable
+
 #for_window [class="tint2"] floating enable
 #for_window [instance="sun-awt-X11-XFramePeer"] floating enable
 #for_window [Title="TuxGuitar"] floating enable
@@ -252,6 +225,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="Preferences"] floating enable
+for_window [class="systemsettings"] floating enable
 
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
@@ -265,6 +239,21 @@ for_window [class="(?i)brave"] border none
 for_window [class="(?i)wesnoth"] border none
 for_window [class="(?i)cool-retro-term"] border none
 for_window [title="(?i)baldur\'s gate"] border none
+
+## For using i3 with KDE
+
+for_window [title="Desktop — Plasma"] kill, floating enable, border none
+for_window [class="plasmashell"] floating enable
+for_window [class="Plasma"] floating enable, border none
+for_window [title="plasma-desktop"] floating enable, border none
+for_window [title="win7"] floating enable, border none
+for_window [class="krunner"] floating enable, border none
+for_window [class="Kmix"] floating enable, border none
+for_window [class="Klipper"] floating enable, border none
+for_window [class="Plasmoidviewer"] floating enable, border none
+for_window [class="(?i)*nextcloud*"] floating disable
+for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
+no_focus [class="plasmashell" window_type="notification"]
 
 ## Colors ##
 set $bg        #1d2021
@@ -292,11 +281,10 @@ client.urgent           $red       $red       $white     $red      $red
 client.background       $bg
 
 ## Start-up ##
-# set wallpaper
-# exec_always hsetroot -fill ~/images/wallpaper/jesus-campos.jpg &
-### for now wallpaper is handled by autorandr postscript
+# Set background image
+exec --no-startup-id feh --bg-scale $wallpaper &
 
-# enable compositing
+# Enable compositing
 exec xcompmgr &
 
 # start xdg default applications
@@ -304,9 +292,6 @@ exec dex -ae i3 &
 
 # automount using udiskie
 exec udiskie --no-notify --tray &
-
-# Unfortunately, systemctl --user cannot access user services on encrypted root
-exec systemctl --user start mpd &
 
 # Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
