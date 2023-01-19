@@ -100,7 +100,7 @@ alias liststeamids="find ~/.steam/steam/steamapps/ -maxdepth 1 -type f -name '*.
 alias findsteamid="find ~/.steam/steam/steamapps/ -maxdepth 1 -type f -name '*.acf' -exec awk -F '\"' '/\"appid|name/{ printf \$4 \"|\" } END { print \"\" }' {} \; | column -t -s '|' | sort -k 2 | grep -i"
 alias bl2="steam steam://rungameid/49520"
 
-export PATH=$PATH:~/.bin
+export PATH=$PATH:~/.bin:~/.local/bin
 
 if [ -f /etc/profile.d/vte.sh ]; then
     source /etc/profile.d/vte.sh
