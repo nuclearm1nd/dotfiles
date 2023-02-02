@@ -164,6 +164,10 @@ bindsym --release $mod+Shift+s exec xset dpms force standby
 bindsym Mod1+Tab exec rofi -show window -no-show-icons
 bindsym Mod1+F2  exec rofi -show drun
 
+# Brightness
+bindsym $mod+Mod1+F1 exec light -U 5
+bindsym $mod+Mod1+F2 exec light -A 5
+
 # Firefox
 bindsym $mod+f exec firefox-developer-edition
 
