@@ -81,7 +81,7 @@ alias pacm="makepkg -fci"  # '[m]ake'           - make package from PKGBUILD fil
 alias setukr="setxkbmap -layout \"us,ru,ua\" -option \"grp:alt_shift_toggle\""
 
 # Sort pacman mirrors and overwrite /etc/pacman.d/mirrorlist
-alias rflct="reflector --verbose -l 20 -p http --sort rate --country Ukraine,Poland,Lithuania,Latvia --save /etc/pacman.d/mirrorlist"
+alias rflct="reflector --verbose -l 20 -p https,rsync --sort rate --country Ukraine,Poland,Lithuania,Latvia --save /etc/pacman.d/mirrorlist"
 
 # export NVM_DIR="/home/vova/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
