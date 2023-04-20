@@ -55,11 +55,10 @@
 
   ;; Theme
   :morhetz/gruvbox {:mod :gruvbox}
-  ;:VDuchauffour/neodark.nvim {:mod :neodark}
 
   ;;; Startup optimizations
   :lewis6991/impatient.nvim {}
-  :nathom/filetype.nvim {:mod :filetype}
+  :nathom/filetype.nvim {}
 
   :moll/vim-bbye {:mod :bbye}
 
