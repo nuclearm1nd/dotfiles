@@ -58,7 +58,7 @@
 
   ;;; Startup optimizations
   :lewis6991/impatient.nvim {}
-  :nathom/filetype.nvim {}
+  ;:nathom/filetype.nvim {}
 
   :moll/vim-bbye {:mod :bbye}
 
