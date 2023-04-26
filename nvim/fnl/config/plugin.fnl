@@ -54,7 +54,9 @@
                      :mod :cmp}
 
   ;; Theme
-  :morhetz/gruvbox {:mod :gruvbox}
+  :morhetz/gruvbox {;:mod :gruvbox
+                    }
+  :nyngwang/nvimgelion {:mod :nvimgelion}
 
   ;;; Startup optimizations
   :lewis6991/impatient.nvim {}
