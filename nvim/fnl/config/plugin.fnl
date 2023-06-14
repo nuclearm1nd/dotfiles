@@ -29,10 +29,11 @@
   :wbthomason/packer.nvim {}
 
   ;; Neovim config and plugins in Fennel
-  :Olical/aniseed {:branch :develop :mod :aniseed}
+  :Olical/aniseed {:branch :develop}
 
   ;; Clojure
-  :Olical/conjure {:branch :master :mod :conjure}
+  :Olical/conjure {:branch :master
+                   :mod :conjure}
 
   ;; File searching
   :nvim-telescope/telescope.nvim {:requires [:nvim-lua/popup.nvim
@@ -57,6 +58,8 @@
   ;; Autocomplete
   :hrsh7th/nvim-cmp {:requires [:hrsh7th/cmp-buffer
                                 :hrsh7th/cmp-nvim-lsp
+                                :hrsh7th/cmp-path
+                                :hrsh7th/cmp-cmdline
                                 :PaterJason/cmp-conjure
                                 :saadparwaiz1/cmp_luasnip]
                      :mod :cmp}
@@ -68,7 +71,7 @@
 
   ;;; Startup optimizations
   :lewis6991/impatient.nvim {}
-  ;:nathom/filetype.nvim {}
+  :nathom/filetype.nvim {}
 
   :moll/vim-bbye {:mod :bbye}
 

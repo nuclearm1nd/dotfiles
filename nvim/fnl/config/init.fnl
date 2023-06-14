@@ -51,6 +51,13 @@
   (each [option value (pairs options)]
     (core.assoc nvim.o option value)))
 
+(fn _G.toggle_signcolumn []
+  (if (= nvim.wo.signcolumn "no")
+    (set nvim.wo.signcolumn "auto")
+    (set nvim.wo.signcolumn "no")))
+
+(keymap :n :<leader>tt ":call v:lua.toggle_signcolumn()<CR>" {:noremap true :silent true})
+
 ;; Mappings
 (keymap :n :<leader>ev ":vsp ~/.dotfiles/nvim/fnl/config/init.fnl<CR>" {:noremap true})
 (keymap :n :<c-d> "yyp" {:noremap true})
