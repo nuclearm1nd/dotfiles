@@ -1,4 +1,4 @@
-(module config.plugin.cmp
+(module config.plugin.diffview
   {autoload {nvim aniseed.nvim
              diffview diffview
              actions diffview.actions}})

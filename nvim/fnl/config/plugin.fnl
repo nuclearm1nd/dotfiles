@@ -44,13 +44,21 @@
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate"
                                     :mod :treesitter}
 
+  ;; Neovim API docs
+  :folke/neodev.nvim {:mod :neodev}
+
   ;; Lsp
   :neovim/nvim-lspconfig {:mod :lspconfig}
+
+  ;; Snippet engine
+  :L3MON4D3/LuaSnip {:tag "v<CurrentMajor>.*"
+                     :run "make install_jsregexp"}
 
   ;; Autocomplete
   :hrsh7th/nvim-cmp {:requires [:hrsh7th/cmp-buffer
                                 :hrsh7th/cmp-nvim-lsp
-                                :PaterJason/cmp-conjure]
+                                :PaterJason/cmp-conjure
+                                :saadparwaiz1/cmp_luasnip]
                      :mod :cmp}
 
   ;; Theme
