@@ -9,48 +9,33 @@
 (set nvim.g.mapleader " ")
 (set nvim.g.maplocalleader ",")
 
-;; Set flags
-(let
-  [flags
-    [;; Allow hidden buffers
-     :hidden
-
-     ;; Show line numbers
-     :number
-
-     ;; Open new splits right and at bottom
-     :splitright
-     :splitbelow
-
-     ;; Expand TABs to spaces
-     :expandtab
-
-     ;; Don't wrap lines
-     :nowrap
-
-     ;; Mouse support
-     :ttyfast
-     ]]
+(defn- set-flags [flags]
   (each [_ flag (ipairs flags)]
     (nvim.ex.set flag)))
 
-;; Sets nvim global options
-(let [options
-      {;; Settings needed for compe autocompletion
-       :completeopt "menuone,noselect"
-
-       ;; Shared clipboard with linux
-       ;:clipboard "unnamedplus"
-
-       ;; Mouse support
-       :mouse "a"
-
-       :tabstop 2
-       :shiftwidth 2
-       :softtabstop 2
-      }]
+(defn- set-options [options]
   (each [option value (pairs options)]
     (core.assoc nvim.o option value)))
+
+(set-flags
+  [:hidden     ;; Allow hidden buffers
+   :number     ;; Show line numbers
+   :splitright ;; Open new splits right and at bottom
+   :splitbelow
+   :expandtab  ;; Expand TABs to spaces
+   :nowrap     ;; Don't wrap lines
+   :ttyfast    ;; Mouse support
+   ])
+
+;; Sets nvim global options
+(set-options
+  {;:completeopt "menuone,noselect" ;; Settings needed for compe autocompletion
+   ;:clipboard "unnamedplus" ;; Shared clipboard with linux
+   :mouse "a" ;; Mouse support
+   :tabstop 2
+   :shiftwidth 2
+   :softtabstop 2
+  })
 
 (fn _G.toggle_signcolumn []
   (if (= nvim.wo.signcolumn "no")
