@@ -52,7 +52,7 @@
   :neovim/nvim-lspconfig {:mod :lspconfig}
 
   ;; Snippet engine
-  :L3MON4D3/LuaSnip {:tag "v<CurrentMajor>.*"
+  :L3MON4D3/LuaSnip {:tag "v1.*"
                      :run "make install_jsregexp"}
 
   ;; Autocomplete

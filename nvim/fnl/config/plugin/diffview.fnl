@@ -3,7 +3,7 @@
              diffview diffview
              actions diffview.actions}})
 
-((. diffview :setup)
+(diffview.setup
  {:diff_binaries false
   :enhanced_diff_hl false
   :use_icons false
