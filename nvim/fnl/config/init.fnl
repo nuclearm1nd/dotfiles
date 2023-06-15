@@ -7,31 +7,32 @@
 ;; Generic mapping leaders configuration
 (nvim.set_keymap :n :<space> :<nop> {:noremap true})
 (set nvim.g.mapleader " ")
-
-(def- cmd vim.api.nvim_command)
-(def- nset nvim.ex.set)
-(def- keymap nvim.set_keymap)
-
 (set nvim.g.maplocalleader ",")
 
-;; Allow hidden buffers
-(nset :hidden)
+;; Set flags
+(let
+  [flags
+    [;; Allow hidden buffers
+     :hidden
 
-;; Show line numbers
-(nset :number)
+     ;; Show line numbers
+     :number
 
-;; Open new splits right and at bottom
-(nset :splitright)
-(nset :splitbelow)
+     ;; Open new splits right and at bottom
+     :splitright
+     :splitbelow
 
-;; Expand TABs to spaces
-(nset :expandtab)
+     ;; Expand TABs to spaces
+     :expandtab
 
-;; Don't wrap lines
-(nset :nowrap)
+     ;; Don't wrap lines
+     :nowrap
 
-;; Mouse support
-(nset :ttyfast)
+     ;; Mouse support
+     :ttyfast
+     ]]
+  (each [_ flag (ipairs flags)]
+    (nvim.ex.set flag)))
 
 ;; Sets nvim global options
 (let [options
@@ -56,25 +57,27 @@
     (set nvim.wo.signcolumn "auto")
     (set nvim.wo.signcolumn "no")))
 
-(keymap :n :<leader>tt ":call v:lua.toggle_signcolumn()<CR>" {:noremap true :silent true})
+(def- keymap util.keymap)
+
+(keymap :n :<leader>tt ":call v:lua.toggle_signcolumn()<CR>" {:silent true})
 
 ;; Mappings
-(keymap :n :<leader>ev ":vsp ~/.dotfiles/nvim/fnl/config/init.fnl<CR>" {:noremap true})
-(keymap :n :<c-d> "yyp" {:noremap true})
-(keymap :i :<c-d> "<esc>yypi" {:noremap true})
-(keymap :n :<c-k> "<esc>^hvk$d" {:noremap true})
-(keymap :i :<c-k> "<esc>^hvk$di" {:noremap true})
-(keymap :n :<c-c> "<esc>vk$c" {:noremap true})
-(keymap :n :<c-del> "<esc>VG$dzb" {:noremap true})
+(keymap :n :<leader>ev ":vsp ~/.dotfiles/nvim/fnl/config/init.fnl<CR>")
+(keymap :n :<c-d> "yyp")
+(keymap :i :<c-d> "<esc>yypi")
+(keymap :n :<c-k> "<esc>^hvk$d")
+(keymap :i :<c-k> "<esc>^hvk$di")
+(keymap :n :<c-c> "<esc>vk$c")
+(keymap :n :<c-del> "<esc>VG$dzb")
 
-(keymap :n :<leader>ch ":checkhealth<CR>" {:noremap true})
-(keymap :n :<leader>an ":e ~/docs/notes/" {:noremap true})
+(keymap :n :<leader>ch ":checkhealth<CR>")
+(keymap :n :<leader>an ":e ~/docs/notes/")
 
 ;; Packer
-(keymap :n :<leader>pu ":PackerUpdate<CR>" {:noremap true})
-(keymap :n :<leader>pi ":PackerInstall<CR>" {:noremap true})
-(keymap :n :<leader>pc ":PackerClean<CR>" {:noremap true})
+(keymap :n :<leader>pu ":PackerUpdate<CR>")
+(keymap :n :<leader>pi ":PackerInstall<CR>")
+(keymap :n :<leader>pc ":PackerClean<CR>")
 
-;; Import plugin.fnl
-(require :config.plugin)
+;; Import plugins
+(require :config.plugins)
 

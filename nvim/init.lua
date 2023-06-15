@@ -1,5 +1,6 @@
 --
 -- https://github.com/rafaeldelboni/nvim-fennel-lsp-conjure-as-clojure-ide
+-- https://github.com/Olical/magic-kit.git
 --
 -- Entrypoint for my Neovim configuration!
 -- We simply bootstrap packer and Aniseed here.
