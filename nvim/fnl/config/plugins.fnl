@@ -48,10 +48,10 @@
                     }
   :nyngwang/nvimgelion {:mod :nvimgelion}
 
-  ;;; Startup optimizations
+  ;; Startup optimizations
   :lewis6991/impatient.nvim {}
-  :nathom/filetype.nvim {}
 
+  ;; Better delete buffer
   :moll/vim-bbye {:mod :bbye}
 
   ;; S-expression tools
