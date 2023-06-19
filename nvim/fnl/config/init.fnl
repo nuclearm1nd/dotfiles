@@ -97,6 +97,16 @@
 (keymap :n :<leader>pi ":PackerInstall<CR>")
 (keymap :n :<leader>pc ":PackerClean<CR>")
 
+;; Open help window in a vertical split to the right
+(vim.api.nvim_create_autocmd
+  [:BufWinEnter]
+  {:group (vim.api.nvim_create_augroup "help_window_right" {})
+   :pattern [ "*.txt" ]
+   :callback
+     (fn []
+       (if (= vim.o.filetype :help)
+           (vim.cmd.wincmd "L")))})
+
 ;; Import plugins
 (require :config.plugins)
 
