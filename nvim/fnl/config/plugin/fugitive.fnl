@@ -11,7 +11,7 @@
    :callback
      (fn [{: buf}]
        (nvim.buf_set_keymap
-         buf :n :dv
-         ":<C-U>execute <SNR>116_StageDiff('Gvdiffsplit')<CR>99<C-W>_"
-         {:noremap true}))})
+         buf :n :dd
+         "<Plug>fugitive:dv99<C-W>_"
+         {:noremap false}))})
 
