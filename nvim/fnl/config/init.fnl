@@ -62,8 +62,8 @@
 
 (keymap :n :<c-d> "yyp")
 (keymap :i :<c-d> "<esc>yypi")
-(keymap :n :<c-k> "<esc>^hvk$d")
-(keymap :i :<c-k> "<esc>^hvk$di")
+;(keymap :n :<c-k> "<esc>^hvk$d")
+;(keymap :i :<c-k> "<esc>^hvk$di")
 (keymap :n :<c-c> "<esc>vk$c")
 (keymap :n :<c-del> "<esc>VG$dzb")
 
@@ -83,9 +83,9 @@
 
 (keymap :n :<leader>sc ":nohlsearch<CR>" {:silent true})
 
-(keymap :n :<leader>bp ":bprevious<CR>" {:silent true})
-(keymap :n :<leader>bn ":bnext<CR>" {:silent true})
-(keymap :n :<leader>bd ":bd<CR>" {:silent true})
+(keymap :n "[b" ":bprevious<CR>" {:silent true})
+(keymap :n "]b" ":bnext<CR>" {:silent true})
+; (keymap :n :<leader>bd ":bd<CR>" {:silent true})
 
 (keymap :n :<leader>ww "<c-w>k<c-w>o")
 
