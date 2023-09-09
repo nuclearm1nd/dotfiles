@@ -98,7 +98,7 @@ alias darkmod="cd ~/games/darkmod/ && prime-run ./thedarkmod.x64"
 # Steam
 alias liststeamids="find ~/.steam/steam/steamapps/ -maxdepth 1 -type f -name '*.acf' -exec awk -F '\"' '/\"appid|name/{ printf \$4 \"|\" } END { print \"\" }' {} \; | column -t -s '|' | sort -k 2"
 alias findsteamid="find ~/.steam/steam/steamapps/ -maxdepth 1 -type f -name '*.acf' -exec awk -F '\"' '/\"appid|name/{ printf \$4 \"|\" } END { print \"\" }' {} \; | column -t -s '|' | sort -k 2 | grep -i"
-alias bl2="steam steam://rungameid/49520"
+alias soc="steam steam://rungameid/867210"
 
 export PATH=$PATH:~/.bin:~/.local/bin
 
