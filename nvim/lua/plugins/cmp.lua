@@ -71,7 +71,7 @@ local function _12_()
   local function _18_(args)
     return luasnip.lsp_expand(args.body)
   end
-  cmp.setup({formatting = {format = _13_}, mapping = {["<C-p>"] = cmp.mapping.select_prev_item(), ["<C-n>"] = cmp.mapping.select_next_item(), ["<C-b>"] = cmp.mapping.scroll_docs(( - 4)), ["<C-f>"] = cmp.mapping.scroll_docs(4), ["<C-Space>"] = cmp.mapping.complete(), ["<C-e>"] = cmp.mapping.close(), ["<CR>"] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Insert, select = true}), ["<Tab>"] = cmp.mapping(_14_, {"i", "s"}), ["<S-Tab>"] = cmp.mapping(_16_, {"i", "s"}), ["<C-Up>"] = cmp.mapping(cmp.mapping.select_prev_item(), {"i", "c"}), ["<C-Down>"] = cmp.mapping(cmp.mapping.select_next_item(), {"i", "c"})}, snippet = {expand = _18_}, sources = cmp_srcs})
+  cmp.setup({formatting = {format = _13_}, mapping = {["<C-p>"] = cmp.mapping.select_prev_item(), ["<C-n>"] = cmp.mapping.select_next_item(), ["<C-b>"] = cmp.mapping.scroll_docs(( - 4)), ["<C-f>"] = cmp.mapping.scroll_docs(4), ["<C-Space>"] = cmp.mapping.complete(), ["<C-e>"] = cmp.mapping.close(), ["<CR>"] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Insert, select = false}), ["<Tab>"] = cmp.mapping(_14_, {"i", "s"}), ["<S-Tab>"] = cmp.mapping(_16_, {"i", "s"}), ["<C-Up>"] = cmp.mapping(cmp.mapping.select_prev_item(), {"i", "c"}), ["<C-Down>"] = cmp.mapping(cmp.mapping.select_next_item(), {"i", "c"})}, snippet = {expand = _18_}, sources = cmp_srcs})
   cmp.setup.cmdline({"/", "?"}, {mapping = cmp.mapping.preset.cmdline(), sources = {{name = "buffer"}}})
   return cmp.setup.cmdline(":", {mapping = cmp.mapping.preset.cmdline(), sources = cmp.config.sources({{name = "path"}}, {{name = "cmdline"}})})
 end
