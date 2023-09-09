@@ -1,19 +1,19 @@
-(module config.init
-  {autoload {core aniseed.core
-             nvim aniseed.nvim
-             util config.util
-             str aniseed.string}})
+(local {: autoload} (require :nfnl.module))
+(local nvim (autoload :nvim))
+(local core (autoload :nfnl.core))
+(local util (autoload :config.util))
 
 ;; Generic mapping leaders configuration
 (nvim.set_keymap :n :<space> :<nop> {:noremap true})
-(set nvim.g.mapleader " ")
-(set nvim.g.maplocalleader ",")
 
-(defn- set-flags [flags]
+(set nvim.g.loaded_perl_provider 0)
+(set nvim.g.loaded_python3_provider 0)
+
+(fn set-flags [flags]
   (each [_ flag (ipairs flags)]
     (nvim.ex.set flag)))
 
-(defn- set-options [options]
+(fn set-options [options]
   (each [option value (pairs options)]
     (core.assoc nvim.o option value)))
 
@@ -31,13 +31,12 @@
 
 ;; Sets nvim global options
 (set-options
-  {;:completeopt "menuone,noselect" ;; Settings needed for compe autocompletion
-   ;:clipboard "unnamedplus" ;; Shared clipboard with linux
+  {;:clipboard "unnamedplus" ;; Shared clipboard with linux
    :mouse "a" ;; Mouse support
    :tabstop 2
    :shiftwidth 2
    :softtabstop 2
-   ;:shortmess "atOI"  ;; no help startup screen
+   :shortmess "atOI"  ;; no help startup screen
    :scrolloff 3
    :listchars "tab:→\\ ,eol:↵,trail:·,extends:↷,precedes:↶"
   })
@@ -52,17 +51,12 @@
     (set nvim.o.list false)
     (set nvim.o.list true)))
 
-(def- keymap util.keymap)
+(local keymap util.keymap)
 
 (keymap :n :<leader>tt ":call v:lua.toggle_signcolumn()<CR>" {:silent true})
 (keymap :n :<leader>tc ":call v:lua.toggle_nonprintable_characters()<CR>" {:silent true})
 
 ;; Mappings
-; (keymap :n :<c-k> "<esc>^hvk$d")
-; (keymap :i :<c-k> "<esc>^hvk$di")
-; (keymap :n :<c-c> "<esc>vk$c")
-; (keymap :n :<leader>ev ":vsp ~/.dotfiles/nvim/fnl/config/init.fnl<CR>")
-
 (keymap :v :<c-c> "\"+y")
 (keymap :n :<c-s-v> "<esc>\"+p")
 (keymap :i :<c-v> "<esc>\"+pi")
@@ -126,17 +120,18 @@
 
 (keymap :n "[b" ":bprevious<CR>" {:silent true})
 (keymap :n "]b" ":bnext<CR>" {:silent true})
-; (keymap :n :<leader>bd ":bd<CR>" {:silent true})
 
 (keymap :n :<leader>ww "<c-w>k<c-w>o")
 
 (keymap :n :<leader>ch ":checkhealth<CR>")
-; (keymap :n :<leader>an ":e ~/docs/notes/")
 
-;; Packer
-(keymap :n :<leader>pu ":PackerUpdate<CR>")
-(keymap :n :<leader>pi ":PackerInstall<CR>")
-(keymap :n :<leader>pc ":PackerClean<CR>")
+;; Lazy Nvim
+(keymap :n :<leader>pu ":Lazy update<CR>")
+(keymap :n :<leader>pi ":Lazy install<CR>")
+(keymap :n :<leader>pc ":Lazy clean<CR>")
+(keymap :n :<leader>pC ":Lazy check<CR>")
+(keymap :n :<leader>ps ":Lazy sync<CR>")
+(keymap :n :<leader>pp ":Lazy <CR>")
 
 ;; Open help window in a vertical split to the right
 (vim.api.nvim_create_autocmd
@@ -148,6 +143,5 @@
        (if (= vim.o.filetype :help)
            (vim.cmd.wincmd "L")))})
 
-;; Import plugins
-(require :config.plugins)
+{}
 
