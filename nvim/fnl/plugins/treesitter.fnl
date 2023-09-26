@@ -1,9 +1,11 @@
 [{1 :nvim-treesitter/nvim-treesitter
   :build ":TSUpdate"
+  :dependencies [:andymass/vim-matchup]
   :config (fn []
             (let [treesitter (require :nvim-treesitter.configs)]
               (treesitter.setup {:highlight {:enable true}
                                  :indent {:enable true}
+                                 :matchup {:enable true}
                                  :ensure_installed [:bash
                                                     :c
                                                     :clojure
