@@ -2,7 +2,7 @@
 (local nvim (autoload :nvim))
 
 [{1 :guns/vim-sexp
-  :dependencies [:tpope/vim-sexp-mappings-for-regular-people]
+  ;:dependencies [:tpope/vim-sexp-mappings-for-regular-people]
   :lazy true
   :ft [:clojure :scheme :lisp :timl :fennel :janet]
   :init (fn []
