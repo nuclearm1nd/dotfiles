@@ -65,6 +65,9 @@
 (keymap :i :<c-d> "<esc>yypi")
 (keymap :n :<c-del> "<esc>VG$dzb")
 
+(keymap :n :<c-f> "<c-d>")
+(keymap :v :<c-f> "<c-d>")
+
 (keymap :v :> ">gv")
 (keymap :v :< "<gv")
 
