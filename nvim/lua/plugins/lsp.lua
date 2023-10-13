@@ -53,6 +53,7 @@ local function _2_()
   on_attach = _4_
   local lua_settings = {Lua = {runtime = {version = "LuaJIT"}, diagnostics = {globals = {"vim"}}, workspace = {library = vim.api.nvim_get_runtime_file("", true), checkThirdParty = false}, telemetry = {enable = false}}}
   lsp.clojure_lsp.setup({on_attach = on_attach, handlers = handlers, before_init = before_init, capabilities = capabilities})
-  return lsp.lua_ls.setup({on_attach = on_attach, handlers = handlers, capabilities = capabilities, settings = lua_settings})
+  lsp.lua_ls.setup({on_attach = on_attach, handlers = handlers, capabilities = capabilities, settings = lua_settings})
+  return lsp.fennel_ls.setup({})
 end
 return {{"neovim/nvim-lspconfig", config = _2_}}

@@ -87,5 +87,8 @@
                  :handlers handlers
                  :capabilities capabilities
                  :settings lua_settings})
+
+              ;; Fennel
+              (lsp.fennel_ls.setup {})
               ))}]
 
