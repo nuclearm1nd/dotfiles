@@ -264,6 +264,7 @@ for_window [class="(?i)chromium"] border none
 for_window [class="(?i)brave"] border none
 for_window [class="(?i)wesnoth"] border none
 for_window [class="(?i)cool-retro-term"] border none
+for_window [title="(?i)baldur\'s gate"] border none
 
 ## Colors ##
 set $bg        #1d2021
