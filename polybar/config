@@ -57,7 +57,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3
 modules-center =
-modules-right = memory cpu battery temperature wlan eth pulseaudio date xkeyboard
+modules-right = memory cpu battery temperature nvidia-smi-temp wlan eth pulseaudio date xkeyboard
 
 tray-position = right
 tray-padding = 2
@@ -380,6 +380,17 @@ ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
+
+[module/nvidia-smi-temp]
+type = custom/script
+exec = ~/.dotfiles/polybar/nvidia-smi-temp.sh
+interval = 3
+format = <label>
+format-fail = <label-fail>
+label = %output%°C
+label-fail =
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
 type = custom/menu
