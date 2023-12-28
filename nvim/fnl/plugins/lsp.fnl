@@ -26,9 +26,10 @@
                             (vim.lsp.with
                               vim.lsp.diagnostic.on_publish_diagnostics
                               {:severity_sort true
-                               :update_in_insert true
+                               :update_in_insert false
                                :underline true
-                               :virtual_text false})
+                               :virtual_text true
+                               :signs true})
                             "textDocument/hover"
                             (vim.lsp.with
                               vim.lsp.handlers.hover
@@ -42,13 +43,23 @@
                                 (set params.workDoneToken :1))
                   on_attach
                     (fn [client bufnr]
+                      (var lsp_show_diagnostics false)
                       (let [keymap (fn [mode from to ?opts]
                                      (nvim.buf_set_keymap bufnr mode from to
-                                                          (util.merge {:noremap true} ?opts)))]
+                                                          (util.merge {:noremap true} ?opts)))
+                            toggle_lsp_diagnostics
+                              (fn []
+                                (set lsp_show_diagnostics (not lsp_show_diagnostics))
+                                (if lsp_show_diagnostics
+                                  (vim.diagnostic.enable)
+                                  (vim.diagnostic.disable)))]
                         (do
-                          (keymap :n :gd "<Cmd>lua vim.lsp.buf.definition()<CR>")
-                          (keymap :n :K "<Cmd>lua vim.lsp.buf.hover()<CR>")
-                          (keymap :n :<leader>ld "<Cmd>lua vim.lsp.buf.declaration()<CR>")
+                          (vim.diagnostic.disable)
+                          (vim.keymap.set :n :<leader>lD toggle_lsp_diagnostics)
+
+                          (keymap :n :gd "<cmd>lua vim.lsp.buf.definition()<CR>")
+                          (keymap :n :K "<cmd>lua vim.lsp.buf.hover()<CR>")
+                          (keymap :n :<leader>ld "<cmd>lua vim.lsp.buf.declaration()<CR>")
                           (keymap :n :<leader>lt "<cmd>lua vim.lsp.buf.type_definition()<CR>")
                           (keymap :n :<leader>lh "<cmd>lua vim.lsp.buf.signature_help()<CR>")
                           (keymap :n :<leader>ln "<cmd>lua vim.lsp.buf.rename()<CR>")
@@ -89,6 +100,9 @@
                  :settings lua_settings})
 
               ;; Fennel
-              (lsp.fennel_ls.setup {})
+              (lsp.fennel_ls.setup
+                {:on_attach on_attach
+                 :handlers handlers
+                 :capabilities capabilities})
               ))}]
 

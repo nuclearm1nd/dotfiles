@@ -18,7 +18,7 @@ define_signs("Diagnostic")
 local function _2_()
   local lsp = require("lspconfig")
   local cmplsp = require("cmp_nvim_lsp")
-  local handlers = {["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {severity_sort = true, update_in_insert = true, underline = true, virtual_text = false}), ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = "single"}), ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = "single"})}
+  local handlers = {["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {severity_sort = true, underline = true, virtual_text = true, signs = true, update_in_insert = false}), ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = "single"}), ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = "single"})}
   local capabilities = cmplsp.default_capabilities()
   local before_init
   local function _3_(params)
@@ -28,14 +28,27 @@ local function _2_()
   before_init = _3_
   local on_attach
   local function _4_(client, bufnr)
+    local lsp_show_diagnostics = false
     local keymap
     local function _5_(mode, from, to, _3fopts)
       return nvim.buf_set_keymap(bufnr, mode, from, to, util.merge({noremap = true}, _3fopts))
     end
     keymap = _5_
-    keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>")
-    keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>")
-    keymap("n", "<leader>ld", "<Cmd>lua vim.lsp.buf.declaration()<CR>")
+    local toggle_lsp_diagnostics
+    local function _6_()
+      lsp_show_diagnostics = not lsp_show_diagnostics
+      if lsp_show_diagnostics then
+        return vim.diagnostic.enable()
+      else
+        return vim.diagnostic.disable()
+      end
+    end
+    toggle_lsp_diagnostics = _6_
+    vim.diagnostic.disable()
+    vim.keymap.set("n", "<leader>lD", toggle_lsp_diagnostics)
+    keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
+    keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+    keymap("n", "<leader>ld", "<cmd>lua vim.lsp.buf.declaration()<CR>")
     keymap("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
     keymap("n", "<leader>lh", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
     keymap("n", "<leader>ln", "<cmd>lua vim.lsp.buf.rename()<CR>")
@@ -54,6 +67,6 @@ local function _2_()
   local lua_settings = {Lua = {runtime = {version = "LuaJIT"}, diagnostics = {globals = {"vim"}}, workspace = {library = vim.api.nvim_get_runtime_file("", true), checkThirdParty = false}, telemetry = {enable = false}}}
   lsp.clojure_lsp.setup({on_attach = on_attach, handlers = handlers, before_init = before_init, capabilities = capabilities})
   lsp.lua_ls.setup({on_attach = on_attach, handlers = handlers, capabilities = capabilities, settings = lua_settings})
-  return lsp.fennel_ls.setup({})
+  return lsp.fennel_ls.setup({on_attach = on_attach, handlers = handlers, capabilities = capabilities})
 end
 return {{"neovim/nvim-lspconfig", config = _2_}}
