@@ -4,6 +4,7 @@ local autoload = _local_1_["autoload"]
 local nvim = autoload("nvim")
 local function _2_()
   vim.cmd("set termguicolors")
-  return vim.cmd("colorscheme nvimgelion")
+  vim.cmd("set background=dark")
+  return vim.cmd("colorscheme gruvbox")
 end
-return {{"nyngwang/nvimgelion", priority = 1000, dependencies = {"nvim-tree/nvim-web-devicons"}, config = _2_, lazy = false}}
+return {{"ellisonleao/gruvbox.nvim", priority = 1000, dependencies = {"nvim-tree/nvim-web-devicons"}, config = _2_, lazy = false}}

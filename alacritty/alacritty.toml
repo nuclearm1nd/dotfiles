@@ -23,7 +23,7 @@ background = "0x121110"
 foreground = "0xdfbf8e"
 
 [font]
-size = 10
+size = 14
 
 [font.bold]
 family = "Source Code Pro"
@@ -44,6 +44,8 @@ style = "Regular"
 [keyboard]
 bindings = [
 { key = "Return", mods = "Control|Shift", action = "SpawnNewInstance"},
+{ key = "K", mods = "Control", action = "ScrollPageUp"  },
+{ key = "J", mods = "Control", action = "ScrollPageDown"},
 ]
 
 [window]
