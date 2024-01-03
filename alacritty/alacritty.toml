@@ -41,10 +41,10 @@ style = "Italic"
 family = "Source Code Pro"
 style = "Regular"
 
-[[keyboard.bindings]]
-action = "SpawnNewInstance"
-key = "Return"
-mods = "Control|Shift"
+[keyboard]
+bindings = [
+{ key = "Return", mods = "Control|Shift", action = "SpawnNewInstance"},
+]
 
 [window]
 opacity = 1.0
